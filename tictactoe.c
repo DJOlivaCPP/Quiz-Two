@@ -97,47 +97,47 @@ char moveCPU()
     {
         move = rand() % 9;
         pass = move + '0';
-        if (move == 1 && (val1 != 'X' || val1 != 'O'))
+        if (move == 1 && (val1 != 'X' && val1 != 'O'))
         {
             valid = 1;
             player2Move(pass);
         }
-        else if (move == 2 && (val2 != 'X' || val2 != 'O'))
+        else if (move == 2 && (val2 != 'X' && val2 != 'O'))
         {
             valid = 1;
             player2Move(pass);
         }
-        else if (move == 3 && (val3 != 'X' || val3 != 'O'))
+        else if (move == 3 && (val3 != 'X' && val3 != 'O'))
         {
             valid = 1;
             player2Move(pass);
         }
-        else if (move == 4 && (val4 != 'X' || val4 != 'O'))
+        else if (move == 4 && (val4 != 'X' && val4 != 'O'))
         {
             valid = 1;
             player2Move(pass);
         }
-        else if (move == 5 && (val5 != 'X' || val5 != 'O'))
+        else if (move == 5 && (val5 != 'X' && val5 != 'O'))
         {
             valid = 1;
             player2Move(pass);
         }
-        else if (move == 6 && (val6 != 'X' || val6 != 'O'))
+        else if (move == 6 && (val6 != 'X' && val6 != 'O'))
         {
             valid = 1;
             player2Move(pass);
         }
-        else if (move == 7 && (val7 != 'X' || val7 != 'O'))
+        else if (move == 7 && (val7 != 'X' && val7 != 'O'))
         {
             valid = 1;
             player2Move(pass);
         }
-        else if (move == 8 && (val8 != 'X' || val8 != 'O'))
+        else if (move == 8 && (val8 != 'X' && val8 != 'O'))
         {
             valid = 1;
             player2Move(pass);
         }
-        else if (move == 9 && (val9 != 'X' || val9 != 'O')){
+        else if (move == 9 && (val9 != 'X' && val9 != 'O')){
             valid = 1;
             player2Move(pass);
         }
