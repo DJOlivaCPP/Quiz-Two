@@ -243,6 +243,7 @@ int main()
     printf("1 - CPU\n");
     printf("2 - Player 2\n");
     in = getchar();
+    getchar();
 
     // preparing board state
     char divider[] = "+-----+\n";
@@ -265,6 +266,7 @@ int main()
             printf("\n");
             printf("Where would you like to put an X:\n");
             in = getchar();
+            getchar();
 
             playerMove(in);
 
@@ -306,6 +308,7 @@ int main()
             printf("|%c|%c|%c|\n", val7, val8, val9);
             printf("Where would player one like to put an X:\n");
             in = getchar();
+            getchar();
 
             playerMove(in);
 
@@ -321,6 +324,7 @@ int main()
             if(end == 3) {
                 printf("Where would player two like to put an X:\n");
                 in = getchar();
+                getchar();
                 player2Move(in);
             }
 
