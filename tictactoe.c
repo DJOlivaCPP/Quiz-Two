@@ -96,7 +96,7 @@ char moveCPU()
     do
     {
         move = rand() % 9;
-        pass = move;
+        pass = move + '0';
         if (move == 1 && val1 != 'X')
         {
             valid = 1;
@@ -272,9 +272,12 @@ int main()
             checkWin();
             if(end == 1){
                 printf("Player Wins!\n");
+                end = 5;
             } else if (end == 2){
                 printf("CPU Wins!\n");
+                end = 5;
             } else if (end == 4){
+                end = 5;
                 printf("Tie\n");
             } else {
                 move = moveCPU();
