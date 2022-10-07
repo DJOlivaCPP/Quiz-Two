@@ -14,7 +14,7 @@
 
 typedef int input;
 
-int end = 1;
+int end = 3;
 char val1 = '1';
 char val2 = '2';
 char val3 = '3';
@@ -46,7 +46,7 @@ int main()
     // while loop to keep game runnning until tie or win
     if (in == 1)
     {
-        while (end == 1)
+        while (end == 3)
         {
             printf("Board State:");
             printf(divider);
@@ -58,54 +58,21 @@ int main()
 
             playerMove(in);
 
-            // check if player wins
-            if (val1 == 'X' && val2 == 'X' && val3 == 'X')
-            {
-                end = 0;
-                printf("Player Wins!");
-            }
-            else if (val4 == 'X' && val5 == 'X' && val6 == 'X')
-            {
-                end = 0;
-                printf("Player Wins!");
-            }
-            else if (val7 == 'X' && val8 == 'X' && val9 == 'X')
-            {
-                end = 0;
-                printf("Player Wins!");
-            }
-            else if (val1 == 'X' && val4 == 'X' && val7 == 'X')
-            {
-                end = 0;
-                printf("Player Wins!");
-            }
-            else if (val2 == 'X' && val5 == 'X' && val8 == 'X')
-            {
-                end = 0;
-                printf("Player Wins!");
-            }
-            else if (val3 == 'X' && val6 == 'X' && val9 == 'X')
-            {
-                end = 0;
-                printf("Player Wins!");
-            }
-            else if (val4 == 'X' && val5 == 'X' && val6 == 'X')
-            {
-                end = 0;
-                printf("Player Wins!");
-            }
-            else if (val1 == 'X' && val5 == 'X' && val9 == 'X')
-            {
-                end = 0;
-                printf("Player Wins!");
-            }
-            else if (val3 == 'X' && val5 == 'X' && val7 == 'X')
-            {
-                end = 0;
-                printf("Player Wins!");
+            checkWin();
+            if(end == 1){
+                printf("Player One Wins!");
+            } else if (end == 2){
+                printf("CPU Wins!");
+            } else {
+                printf("CPU places an O at: " + moveCPU());
             }
 
-            moveCPU(in);
+            checkWin();
+            if(end == 1){
+                printf("Player One Wins!");
+            } else if (end == 2){
+                printf("CPU Wins!");
+            }
         }
     }
 
@@ -197,33 +164,128 @@ int moveCPU()
         {
             valid = 1;
             player2Move(move);
-        } else if (move == 2 && val2 != 'X'){
-            valid = 1;
-            player2Move(move);
-        } else if (move == 3 && val3 != 'X'){
-            valid = 1;
-            player2Move(move);
-        } else if (move == 4 && val4 != 'X'){
-            valid = 1;
-            player2Move(move);
-        } else if (move == 5 && val5 != 'X'){
-            valid = 1;
-            player2Move(move);
-        }else if (move == 6 && val6 != 'X'){
-            valid = 1;
-            player2Move(move);
-        }else if (move == 7 && val7 != 'X'){
-            valid = 1;
-            player2Move(move);
-        }else if (move == 8 && val8 != 'X'){
-            valid = 1;
-            player2Move(move);
-        }else if (move == 9 && val9 != 'X'){
+        }
+        else if (move == 2 && val2 != 'X')
+        {
             valid = 1;
             player2Move(move);
         }
-        
+        else if (move == 3 && val3 != 'X')
+        {
+            valid = 1;
+            player2Move(move);
+        }
+        else if (move == 4 && val4 != 'X')
+        {
+            valid = 1;
+            player2Move(move);
+        }
+        else if (move == 5 && val5 != 'X')
+        {
+            valid = 1;
+            player2Move(move);
+        }
+        else if (move == 6 && val6 != 'X')
+        {
+            valid = 1;
+            player2Move(move);
+        }
+        else if (move == 7 && val7 != 'X')
+        {
+            valid = 1;
+            player2Move(move);
+        }
+        else if (move == 8 && val8 != 'X')
+        {
+            valid = 1;
+            player2Move(move);
+        }
+        else if (move == 9 && val9 != 'X')
+        {
+            valid = 1;
+            player2Move(move);
+        }
+
     } while (valid == 0);
 
     return move;
+}
+
+int checkWin()
+{
+    // check if player 1 wins
+    if (val1 == 'X' && val2 == 'X' && val3 == 'X')
+    {
+        end = 2;
+    }
+    else if (val4 == 'X' && val5 == 'X' && val6 == 'X')
+    {
+        end = 2;
+    }
+    else if (val7 == 'X' && val8 == 'X' && val9 == 'X')
+    {
+        end = 2;
+    }
+    else if (val1 == 'X' && val4 == 'X' && val7 == 'X')
+    {
+        end = 2;
+    }
+    else if (val2 == 'X' && val5 == 'X' && val8 == 'X')
+    {
+        end = 2;
+    }
+    else if (val3 == 'X' && val6 == 'X' && val9 == 'X')
+    {
+        end = 2;
+    }
+    else if (val4 == 'X' && val5 == 'X' && val6 == 'X')
+    {
+        end = 2;
+    }
+    else if (val1 == 'X' && val5 == 'X' && val9 == 'X')
+    {
+        end = 2;
+    }
+    else if (val3 == 'X' && val5 == 'X' && val7 == 'X')
+    {
+        end = 2;
+    }
+
+    // check if player 2 wins
+    if (val1 == 'O' && val2 == 'O' && val3 == 'O')
+    {
+        end = 2;
+    }
+    else if (val4 == 'O' && val5 == 'O' && val6 == 'O')
+    {
+        end = 2;
+    }
+    else if (val7 == 'O' && val8 == 'O' && val9 == 'O')
+    {
+        end = 2;
+    }
+    else if (val1 == 'O' && val4 == 'O' && val7 == 'O')
+    {
+        end = 2;
+    }
+    else if (val2 == 'O' && val5 == 'O' && val8 == 'O')
+    {
+        end = 2;
+    }
+    else if (val3 == 'O' && val6 == 'O' && val9 == 'O')
+    {
+        end = 2;
+    }
+    else if (val4 == 'O' && val5 == 'O' && val6 == 'O')
+    {
+        end = 2;
+    }
+    else if (val1 == 'O' && val5 == 'O' && val9 == 'O')
+    {
+        end = 2;
+    }
+    else if (val3 == 'O' && val5 == 'O' && val7 == 'O')
+    {
+        end = 2;
+    }
 }
