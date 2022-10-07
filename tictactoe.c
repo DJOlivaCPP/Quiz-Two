@@ -1,9 +1,11 @@
+//includes for randm and console reading
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
 typedef char input;
 
+//initializing values used by every method
 int end = 3;
 char val1 = '1';
 char val2 = '2';
@@ -15,6 +17,7 @@ char val7 = '7';
 char val8 = '8';
 char val9 = '9';
 
+//changes apparropriate space to X for player one
 char playerMove(char in)
 {
     switch (in)
@@ -51,6 +54,7 @@ char playerMove(char in)
     return '1';
 }
 
+//same as playerMove() but changes to O instead
 char player2Move(char in)
 {
     switch (in)
@@ -87,6 +91,8 @@ char player2Move(char in)
     return '1';
 }
 
+//generates a random space for the CPU to attempt to put an O at
+//if the space is already taken it will loop until it choses a space not taken
 char moveCPU()
 {
     int valid = 0;
@@ -147,6 +153,7 @@ char moveCPU()
     return pass;
 }
 
+//checks the board for potential win conditions 
 void checkWin()
 {
     // check if player 1 wins
@@ -230,15 +237,15 @@ void checkWin()
     }
 }
 
+//main method
 int main()
 {
-    // prompt user:
-    //  vs CPU or vs Player2
-
+    // intialization for variables in main
     input in;
     char cpu;
     time_t t;
     srand((unsigned)time(&t));
+    //prompts user to play against CPU or another player
     printf("Enter a value to play against CPU or Player\n");
     printf("1 - CPU\n");
     printf("2 - Player 2\n");
@@ -249,12 +256,13 @@ int main()
     char divider[] = "+-----+\n";
 
     // vs CPU
-    // while loop to keep game runnning until tie or win
     if (in == '1')
     {
         char move;
+        // while loop to keep game runnning until tie or win
         while (end == 3)
         {
+            //printing board state
             printf("Board State:\n");
             printf(divider);
             printf("|%c|%c|%c|\n", val1, val2, val3);
@@ -264,13 +272,17 @@ int main()
             printf("|%c|%c|%c|\n", val7, val8, val9);
             printf(divider);
             printf("\n");
+            //ask where to put an X for player
             printf("Where would you like to put an X:\n");
             in = getchar();
             getchar();
 
+            //changes the board for player
             playerMove(in);
 
+            //checks if a win condition has been met
             checkWin();
+            //print out the winner if there is a win condition
             if(end == 1){
                 printf("Player Wins!\n");
                 end = 5;
@@ -282,11 +294,13 @@ int main()
                 printf("Tie\n");
             } 
             
+            //CPU perfoms a move if a win condition has not been met
             if(end == 3) {
                 move = moveCPU();
                 printf("CPU places an O at: %c\n", move);
             }
 
+            //checks win conditions again after CPU has made move
             checkWin();
             if(end == 1){
                 printf("Player One Wins!");
@@ -301,6 +315,8 @@ int main()
         }
 
 
+    //playing against another player
+    //it is almost exactly the same as playing aginst a CPU, except instead of a randomly chosen move it it a usnr inputted one
     } else if (in == '2') {
         while (end == 3)
         {
@@ -327,8 +343,9 @@ int main()
                 end = 5;
             } 
 
+            //if a win condition has not been met then it will ask for player two's move
             if(end == 3) {
-                printf("Where would player two like to put an X:\n");
+                printf("Where would player two like to put an O:\n");
                 in = getchar();
                 getchar();
                 player2Move(in);
@@ -347,6 +364,5 @@ int main()
             } 
         }
     }
-
     return 0;
 }
