@@ -15,109 +15,6 @@ char val7 = '7';
 char val8 = '8';
 char val9 = '9';
 
-int main()
-{
-    // prompt user:
-    //  vs CPU or vs Player2
-
-    input in;
-    char cpu;
-    time_t t;
-    srand((unsigned)time(&t));
-    printf("Enter a value to play against CPU or Player");
-    printf("1 - CPU");
-    printf("2 - Player 2");
-    in = getchar();
-
-    // preparing board state
-    char divider[] = "+-----+\n";
-
-    // vs CPU
-    // while loop to keep game runnning until tie or win
-    if (in == '1')
-    {
-        char move;
-        while (end == 3)
-        {
-            printf("Board State:\n");
-            printf(divider);
-            printf("|%s|%s|%s|\n", val1, val2, val3);
-            printf(divider);
-            printf("|%s|%s|%s|\n", val4, val5, val6);
-            printf(divider);
-            printf("|%s|%s|%s|\n", val7, val8, val9);
-            printf(divider);
-            printf("\n");
-            printf("Where would you like to put an X:\n");
-            in = getchar();
-
-            playerMove(in);
-
-            checkWin();
-            if(end == 1){
-                printf("Player Wins!\n");
-            } else if (end == 2){
-                printf("CPU Wins!\n");
-            } else if (end == 4){
-                printf("Tie\n");
-            } else {
-                move = moveCPU();
-                printf("CPU places an O at: %s\n", move);
-            }
-
-            checkWin();
-            if(end == 1){
-                printf("Player One Wins!");
-            } else if (end == 2){
-                printf("CPU Wins!");
-            } else if (end == 4){
-                printf("Tie");
-            }
-        }
-
-
-    } else if (in == '2') {
-        while (end == 3)
-        {
-            printf("Board State:\n");
-            printf(divider);
-            printf("|%s|%s|%s|\n", val1, val2, val3);
-            printf("|%s|%s|%s|\n", val4, val5, val6);
-            printf("|%s|%s|%s|\n", val7, val8, val9);
-            printf("Where would player one like to put an X:\n");
-            in = getchar();
-
-            playerMove(in);
-
-            checkWin();
-            if(end == 1){
-                printf("Player One Wins!\n");
-            } else if (end == 2){
-                printf("CPU Wins!\n");
-            } else if (end == 4){
-                printf("Tie\n");
-            } else {
-                printf("Where would player one like to put an X:\n");
-                in = getchar();
-                player2Move(in);
-            }
-
-            checkWin();
-            if(end == 1){
-                printf("Player One Wins!\n");
-            } else if (end == 2){
-                printf("CPU Wins!\n");
-            } else if (end == 4){
-                printf("Tie\n");
-            }
-        }
-
-
-    }
-
-    return 0;
-}
-
 char playerMove(char in)
 {
     switch (in)
@@ -332,4 +229,107 @@ void checkWin()
     if(val1 != '1' && val2 != '2' && val3 != '3' && val4 != '4' && val5 != '5' && val6 != '6' && val7 != '7' && val8 != '8' && val9 != '9'){
         end = 4;
     }
+}
+
+int main()
+{
+    // prompt user:
+    //  vs CPU or vs Player2
+
+    input in;
+    char cpu;
+    time_t t;
+    srand((unsigned)time(&t));
+    printf("Enter a value to play against CPU or Player");
+    printf("1 - CPU");
+    printf("2 - Player 2");
+    in = getchar();
+
+    // preparing board state
+    char divider[] = "+-----+\n";
+
+    // vs CPU
+    // while loop to keep game runnning until tie or win
+    if (in == '1')
+    {
+        char move;
+        while (end == 3)
+        {
+            printf("Board State:\n");
+            printf(divider);
+            printf("|%s|%s|%s|\n", val1, val2, val3);
+            printf(divider);
+            printf("|%s|%s|%s|\n", val4, val5, val6);
+            printf(divider);
+            printf("|%s|%s|%s|\n", val7, val8, val9);
+            printf(divider);
+            printf("\n");
+            printf("Where would you like to put an X:\n");
+            in = getchar();
+
+            playerMove(in);
+
+            checkWin();
+            if(end == 1){
+                printf("Player Wins!\n");
+            } else if (end == 2){
+                printf("CPU Wins!\n");
+            } else if (end == 4){
+                printf("Tie\n");
+            } else {
+                move = moveCPU();
+                printf("CPU places an O at: %s\n", move);
+            }
+
+            checkWin();
+            if(end == 1){
+                printf("Player One Wins!");
+            } else if (end == 2){
+                printf("CPU Wins!");
+            } else if (end == 4){
+                printf("Tie");
+            }
+        }
+
+
+    } else if (in == '2') {
+        while (end == 3)
+        {
+            printf("Board State:\n");
+            printf(divider);
+            printf("|%s|%s|%s|\n", val1, val2, val3);
+            printf("|%s|%s|%s|\n", val4, val5, val6);
+            printf("|%s|%s|%s|\n", val7, val8, val9);
+            printf("Where would player one like to put an X:\n");
+            in = getchar();
+
+            playerMove(in);
+
+            checkWin();
+            if(end == 1){
+                printf("Player One Wins!\n");
+            } else if (end == 2){
+                printf("CPU Wins!\n");
+            } else if (end == 4){
+                printf("Tie\n");
+            } else {
+                printf("Where would player one like to put an X:\n");
+                in = getchar();
+                player2Move(in);
+            }
+
+            checkWin();
+            if(end == 1){
+                printf("Player One Wins!\n");
+            } else if (end == 2){
+                printf("CPU Wins!\n");
+            } else if (end == 4){
+                printf("Tie\n");
+            }
+        }
+
+
+    }
+
+    return 0;
 }
