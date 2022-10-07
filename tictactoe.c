@@ -290,9 +290,12 @@ int main()
             checkWin();
             if(end == 1){
                 printf("Player One Wins!");
+                end = 5;
             } else if (end == 2){
                 printf("CPU Wins!");
+                end = 5;
             } else if (end == 4){
+                end = 5;
                 printf("Tie");
             }
         }
@@ -315,10 +318,13 @@ int main()
             checkWin();
             if(end == 1){
                 printf("Player One Wins!\n");
+                end = 5;
             } else if (end == 2){
                 printf("Player Two Wins!\n");
+                end = 5;
             } else if (end == 4){
                 printf("Tie\n");
+                end = 5;
             } 
 
             if(end == 3) {
@@ -331,10 +337,13 @@ int main()
             checkWin();
             if(end == 1){
                 printf("Player One Wins!\n");
+                end = 5;
             } else if (end == 2){
                 printf("Player Two Wins!\n");
+                end = 5;
             } else if (end == 4){
                 printf("Tie\n");
+                end = 5;
             } 
         }
     }
