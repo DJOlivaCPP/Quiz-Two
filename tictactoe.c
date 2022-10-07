@@ -17,7 +17,7 @@ int main(){
     //  vs CPU or vs Player2
 
     input in;
-    int end = 0;
+    int end = 1;
     printf("Enter a value to play against CPU or Player");
     printf("1 - CPU");
     printf("2 - Player 2");
@@ -38,8 +38,8 @@ int main(){
     // vs CPU
     // while loop to keep game runnning until tie or win
     if (in == 1){
-        while (end == 0){
-            printf("Board:");
+        while (end == 1){
+            printf("Board State:");
             printf(divider);
             printf("|%s|%s|%s|", val1, val2, val3);
             printf("|%s|%s|%s|", val4, val5, val6);
@@ -76,11 +76,37 @@ int main(){
                     val9 = 'X';
                     break;
             }
+
+            //check if player wins
+            if(val1 == 'X' && val2 == 'X' && val3 == 'X') {
+                end = 0;
+                printf("You win!");
+            } else if (val4 == 'X' && val5 == 'X' && val6 == 'X') {
+                end = 0;
+                printf("You win!");
+            } else if (val7 == 'X' && val8 == 'X' && val9 == 'X') {
+                end = 0;
+                printf("You win!");
+            } else if (val1 == 'X' && val4 == 'X' && val7 == 'X') {
+                end = 0;
+                printf("You win!");
+            } else if (val2 == 'X' && val5 == 'X' && val8 == 'X') {
+                end = 0;
+                printf("You win!");
+            } else if (val3 == 'X' && val6 == 'X' && val9 == 'X') {
+                end = 0;
+                printf("You win!");
+            } else if (val4 == 'X' && val5 == 'X' && val6 == 'X') {
+                end = 0;
+                printf("You win!");
+            } else if (val1 == 'X' && val5 == 'X' && val9 == 'X') {
+                end = 0;
+                printf("You win!");
+            } else if (val3 == 'X' && val5 == 'X' && val7 == 'X') {
+                end = 0;
+                printf("You win!");
+            }
         }
     }
-
-    // compute win states
-    // display winner if win state
-
     return 0;
 }
