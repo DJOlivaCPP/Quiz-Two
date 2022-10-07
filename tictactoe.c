@@ -1,13 +1,3 @@
-/*
-+-----+
-| | | |
-+-----+
-| | | |
-+-----+
-| | | |
-+-----+
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -40,21 +30,24 @@ int main()
     in = getchar();
 
     // preparing board state
-    char divider[] = "+-----+";
+    char divider[] = "+-----+\n";
 
     // vs CPU
     // while loop to keep game runnning until tie or win
     if (in == '1')
     {
-        int move;
-        char pass;
+        char move;
         while (end == 3)
         {
             printf("Board State:\n");
             printf(divider);
             printf("|%s|%s|%s|\n", val1, val2, val3);
+            printf(divider);
             printf("|%s|%s|%s|\n", val4, val5, val6);
+            printf(divider);
             printf("|%s|%s|%s|\n", val7, val8, val9);
+            printf(divider);
+            printf("\n");
             printf("Where would you like to put an X:\n");
             in = getchar();
 
@@ -62,15 +55,14 @@ int main()
 
             checkWin();
             if(end == 1){
-                printf("Player One Wins!\n");
+                printf("Player Wins!\n");
             } else if (end == 2){
                 printf("CPU Wins!\n");
             } else if (end == 4){
                 printf("Tie\n");
             } else {
                 move = moveCPU();
-                pass = move;
-                printf("CPU places an O at: %s\n", pass);
+                printf("CPU places an O at: %s\n", move);
             }
 
             checkWin();
@@ -126,7 +118,7 @@ int main()
     return 0;
 }
 
-int playerMove(char in)
+char playerMove(char in)
 {
     switch (in)
     {
@@ -159,10 +151,10 @@ int playerMove(char in)
         break;
     }
 
-    return 1;
+    return '1';
 }
 
-int player2Move(char in)
+char player2Move(char in)
 {
     switch (in)
     {
@@ -195,10 +187,10 @@ int player2Move(char in)
         break;
     }
 
-    return 1;
+    return '1';
 }
 
-int moveCPU()
+char moveCPU()
 {
     int valid = 0;
     int move;
@@ -256,10 +248,10 @@ int moveCPU()
 
     } while (valid == 0);
 
-    return move;
+    return pass;
 }
 
-int checkWin()
+void checkWin()
 {
     // check if player 1 wins
     if (val1 == 'X' && val2 == 'X' && val3 == 'X')
