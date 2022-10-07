@@ -240,9 +240,9 @@ int main()
     char cpu;
     time_t t;
     srand((unsigned)time(&t));
-    printf("Enter a value to play against CPU or Player");
-    printf("1 - CPU");
-    printf("2 - Player 2");
+    printf("Enter a value to play against CPU or Player\n");
+    printf("1 - CPU\n");
+    printf("2 - Player 2\n");
     in = getchar();
 
     // preparing board state
@@ -257,11 +257,11 @@ int main()
         {
             printf("Board State:\n");
             printf(divider);
-            printf("|%s|%s|%s|\n", val1, val2, val3);
+            printf("|%c|%c|%c|\n", val1, val2, val3);
             printf(divider);
-            printf("|%s|%s|%s|\n", val4, val5, val6);
+            printf("|%c|%c|%c|\n", val4, val5, val6);
             printf(divider);
-            printf("|%s|%s|%s|\n", val7, val8, val9);
+            printf("|%c|%c|%c|\n", val7, val8, val9);
             printf(divider);
             printf("\n");
             printf("Where would you like to put an X:\n");
@@ -278,7 +278,7 @@ int main()
                 printf("Tie\n");
             } else {
                 move = moveCPU();
-                printf("CPU places an O at: %s\n", move);
+                printf("CPU places an O at: %c\n", move);
             }
 
             checkWin();
@@ -297,9 +297,9 @@ int main()
         {
             printf("Board State:\n");
             printf(divider);
-            printf("|%s|%s|%s|\n", val1, val2, val3);
-            printf("|%s|%s|%s|\n", val4, val5, val6);
-            printf("|%s|%s|%s|\n", val7, val8, val9);
+            printf("|%c|%c|%c|\n", val1, val2, val3);
+            printf("|%c|%c|%c|\n", val4, val5, val6);
+            printf("|%c|%c|%c|\n", val7, val8, val9);
             printf("Where would player one like to put an X:\n");
             in = getchar();
 
