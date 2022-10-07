@@ -97,48 +97,47 @@ char moveCPU()
     {
         move = rand() % 9;
         pass = move + '0';
-        if (move == 1 && val1 != 'X')
+        if (move == 1 && (val1 != 'X' || val1 != 'O'))
         {
             valid = 1;
             player2Move(pass);
         }
-        else if (move == 2 && val2 != 'X')
+        else if (move == 2 && (val1 != 'X' || val1 != 'O'))
         {
             valid = 1;
             player2Move(pass);
         }
-        else if (move == 3 && val3 != 'X')
+        else if (move == 3 && (val1 != 'X' || val1 != 'O'))
         {
             valid = 1;
             player2Move(pass);
         }
-        else if (move == 4 && val4 != 'X')
+        else if (move == 4 && (val1 != 'X' || val1 != 'O'))
         {
             valid = 1;
             player2Move(pass);
         }
-        else if (move == 5 && val5 != 'X')
+        else if (move == 5 && (val1 != 'X' || val1 != 'O'))
         {
             valid = 1;
             player2Move(pass);
         }
-        else if (move == 6 && val6 != 'X')
+        else if (move == 6 && (val1 != 'X' || val1 != 'O'))
         {
             valid = 1;
             player2Move(pass);
         }
-        else if (move == 7 && val7 != 'X')
+        else if (move == 7 && (val1 != 'X' || val1 != 'O'))
         {
             valid = 1;
             player2Move(pass);
         }
-        else if (move == 8 && val8 != 'X')
+        else if (move == 8 && (val1 != 'X' || val1 != 'O'))
         {
             valid = 1;
             player2Move(pass);
         }
-        else if (move == 9 && val9 != 'X')
-        {
+        else if (move == 9 && (val1 != 'X' || val1 != 'O')){
             valid = 1;
             player2Move(pass);
         }
@@ -312,22 +311,26 @@ int main()
             if(end == 1){
                 printf("Player One Wins!\n");
             } else if (end == 2){
-                printf("CPU Wins!\n");
+                printf("Player Two Wins!\n");
             } else if (end == 4){
                 printf("Tie\n");
             } else {
                 printf("Where would player one like to put an X:\n");
                 in = getchar();
-                player2Move(in);
+                player1Move(in);
             }
 
             checkWin();
             if(end == 1){
                 printf("Player One Wins!\n");
             } else if (end == 2){
-                printf("CPU Wins!\n");
+                printf("Player Two Wins!\n");
             } else if (end == 4){
                 printf("Tie\n");
+            } else {
+                printf("Where would player two like to put an X:\n");
+                in = getchar();
+                player2Move(in);
             }
         }
 
