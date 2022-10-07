@@ -47,6 +47,7 @@ int main()
     if (in == '1')
     {
         int move;
+        char pass;
         while (end == 3)
         {
             printf("Board State:\n");
@@ -68,7 +69,8 @@ int main()
                 printf("Tie\n");
             } else {
                 move = moveCPU();
-                printf("CPU places an O at: %d\n", move);
+                pass = move;
+                printf("CPU places an O at: %s\n", pass);
             }
 
             checkWin();
@@ -200,55 +202,56 @@ int moveCPU()
 {
     int valid = 0;
     int move;
+    char pass;
 
     do
     {
         move = rand() % 9;
-
+        pass = move;
         if (move == 1 && val1 != 'X')
         {
             valid = 1;
-            player2Move(move);
+            player2Move(pass);
         }
         else if (move == 2 && val2 != 'X')
         {
             valid = 1;
-            player2Move(move);
+            player2Move(pass);
         }
         else if (move == 3 && val3 != 'X')
         {
             valid = 1;
-            player2Move(move);
+            player2Move(pass);
         }
         else if (move == 4 && val4 != 'X')
         {
             valid = 1;
-            player2Move(move);
+            player2Move(pass);
         }
         else if (move == 5 && val5 != 'X')
         {
             valid = 1;
-            player2Move(move);
+            player2Move(pass);
         }
         else if (move == 6 && val6 != 'X')
         {
             valid = 1;
-            player2Move(move);
+            player2Move(pass);
         }
         else if (move == 7 && val7 != 'X')
         {
             valid = 1;
-            player2Move(move);
+            player2Move(pass);
         }
         else if (move == 8 && val8 != 'X')
         {
             valid = 1;
-            player2Move(move);
+            player2Move(pass);
         }
         else if (move == 9 && val9 != 'X')
         {
             valid = 1;
-            player2Move(move);
+            player2Move(pass);
         }
 
     } while (valid == 0);
