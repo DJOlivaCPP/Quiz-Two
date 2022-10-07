@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-typedef int input;
+typedef char input;
 
 int end = 3;
 char val1 = '1';
@@ -44,7 +44,7 @@ int main()
 
     // vs CPU
     // while loop to keep game runnning until tie or win
-    if (in == 1)
+    if (in == '1')
     {
         int move;
         while (end == 3)
@@ -82,7 +82,7 @@ int main()
         }
 
 
-    } else if (in == 2) {
+    } else if (in == '2') {
         while (end == 3)
         {
             printf("Board State:\n");
