@@ -278,7 +278,9 @@ int main()
             } else if (end == 4){
                 end = 5;
                 printf("Tie\n");
-            } else {
+            } 
+            
+            if(end == 3) {
                 move = moveCPU();
                 printf("CPU places an O at: %c\n", move);
             }
@@ -314,10 +316,12 @@ int main()
                 printf("Player Two Wins!\n");
             } else if (end == 4){
                 printf("Tie\n");
-            } else {
-                printf("Where would player one like to put an X:\n");
+            } 
+
+            if(end == 3) {
+                printf("Where would player two like to put an X:\n");
                 in = getchar();
-                player1Move(in);
+                player2Move(in);
             }
 
             checkWin();
@@ -327,14 +331,8 @@ int main()
                 printf("Player Two Wins!\n");
             } else if (end == 4){
                 printf("Tie\n");
-            } else {
-                printf("Where would player two like to put an X:\n");
-                in = getchar();
-                player2Move(in);
-            }
+            } 
         }
-
-
     }
 
     return 0;
