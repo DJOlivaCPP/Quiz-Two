@@ -159,39 +159,39 @@ void checkWin()
     // check if player 1 wins
     if (val1 == 'X' && val2 == 'X' && val3 == 'X')
     {
-        end = 2;
+        end = 1;
     }
     else if (val4 == 'X' && val5 == 'X' && val6 == 'X')
     {
-        end = 2;
+        end = 1;
     }
     else if (val7 == 'X' && val8 == 'X' && val9 == 'X')
     {
-        end = 2;
+        end = 1;
     }
     else if (val1 == 'X' && val4 == 'X' && val7 == 'X')
     {
-        end = 2;
+        end = 1;
     }
     else if (val2 == 'X' && val5 == 'X' && val8 == 'X')
     {
-        end = 2;
+        end = 1;
     }
     else if (val3 == 'X' && val6 == 'X' && val9 == 'X')
     {
-        end = 2;
+        end = 1;
     }
     else if (val4 == 'X' && val5 == 'X' && val6 == 'X')
     {
-        end = 2;
+        end = 1;
     }
     else if (val1 == 'X' && val5 == 'X' && val9 == 'X')
     {
-        end = 2;
+        end = 1;
     }
     else if (val3 == 'X' && val5 == 'X' && val7 == 'X')
     {
-        end = 2;
+        end = 1;
     }
 
     // check if player 2 wins
@@ -301,7 +301,10 @@ int main()
             }
 
             //checks win conditions again after CPU has made move
-            checkWin();
+            if(end == 3){
+                checkWin();
+            }
+            
             if(end == 1){
                 printf("Player One Wins!");
                 end = 5;
@@ -323,13 +326,26 @@ int main()
             printf("Board State:\n");
             printf(divider);
             printf("|%c|%c|%c|\n", val1, val2, val3);
+            printf(divider);
             printf("|%c|%c|%c|\n", val4, val5, val6);
+            printf(divider);
             printf("|%c|%c|%c|\n", val7, val8, val9);
+            printf(divider);
+            printf("\n");
             printf("Where would player one like to put an X:\n");
             in = getchar();
             getchar();
 
             playerMove(in);
+            printf("Board State:\n");
+            printf(divider);
+            printf("|%c|%c|%c|\n", val1, val2, val3);
+            printf(divider);
+            printf("|%c|%c|%c|\n", val4, val5, val6);
+            printf(divider);
+            printf("|%c|%c|%c|\n", val7, val8, val9);
+            printf(divider);
+            printf("\n");
 
             checkWin();
             if(end == 1){
@@ -351,7 +367,10 @@ int main()
                 player2Move(in);
             }
 
-            checkWin();
+            if(end == 3){
+                checkWin();
+            }
+            
             if(end == 1){
                 printf("Player One Wins!\n");
                 end = 5;
